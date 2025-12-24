@@ -39,17 +39,37 @@ const app = createApp({
                 gender:"male",
                 interests:["sports","movie"],
                 address:"123 Main Street, Mumbai, Maharashtra 400001"
-            }],
+            },
+        {
+                id: "3",
+                firstName: "Abhinav",
+                lastName: "Goyal",
+                email: "abhinavgoyal@example.com",
+                phoneNumber: "9876543210",
+                dob: "1990-03-10",
+                city:"banglore",
+                gender:"male",
+                interests:["sports","music","politics"],
+                address:"123 Main Street, Banglore, Karnataka 560001"
+            },
+            {
+                id: "4",
+                firstName: "Tushar",
+                lastName: "Verma",
+                email: "tusharverma@example.com",
+                phoneNumber: "9876543210",
+                dob: "1990-03-10",
+                city:"chennai",
+                gender:"male",
+                interests:["sports","music","politics"],
+                address:"123 Main Street, Chennai, Tamil Nadu 600001"
+            }
+        ],
             error:{},
             modifyBit: false,
             modifyId:"",
             sortOption:"",
-            tempArr:[],
-            arrayName:"profiles",
         };
-    },
-    created() {
-        this.tempArr = [...this.profiles];
     },
     computed: {
         displayedProfiles() {
@@ -134,7 +154,6 @@ const app = createApp({
                     address: this.address,
                 });
             }
-            this.tempArr = [...this.profiles];
             this.formReset();
             console.log(this.profiles);
         },
@@ -212,43 +231,6 @@ const app = createApp({
             this.modifyBit = false;
             this.modifyId = "";
         },
-        sortProfiles(){
-        let choiceId = this.sortOption;
-        switch (choiceId) {
-        case "FNA-Z":
-            this.tempArr.sort((a, b) => a["firstName"].localeCompare(b["firstName"]));
-            break;
-        case "LNA-Z":
-            this.tempArr.sort((a, b) => a["lastName"].localeCompare(b["lastName"]));
-            break;
-        case "CityA-Z":
-            this.tempArr.sort((a, b) => a["city"].localeCompare(b["city"]));
-            break;
-        case "FNZ-A":
-            this.tempArr.sort((a, b) => b["firstName"].localeCompare(a["firstName"]));
-            break;
-        case "LNZ-A":
-            this.tempArr.sort((a, b) => b["lastName"].localeCompare(a["lastName"]));
-            break;
-        case "CityZ-A":
-            this.tempArr.sort((a, b) => b["city"].localeCompare(a["city"]));
-            break;
-        case "DOBO-Y":
-            this.tempArr.sort((a, b) => {
-                return new Date(a.dob) - new  Date(b.dob);
-            });
-            break;
-        case "DOBY-O":
-            this.tempArr.sort((a, b) => {
-                return new Date(b.dob) - new Date(a.dob);
-            });
-            break;
-    }
-    this.arrayName = "tempArr";
-    },
-    filterProfiles(){
-        console.log(this.male);
-    }
 },
 });
 app.mount("#app");
