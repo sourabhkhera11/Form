@@ -111,7 +111,71 @@
             </div>
         </form>
         <div v-show="showProfile" class="container2">
-            <table>
+            <div class="tableHeader">
+            <h2 class="accountHeading">Account Details</h2>
+            <div class="actionRow">
+                <div class="filterBy">
+                    <span>
+                        FILTER  
+                    </span>
+                       <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" viewBox="0 0 24 24" fill="none">
+    <path d="M14 20.5H10C9.80189 20.4974 9.61263 20.4176 9.47253 20.2775C9.33244 20.1374 9.25259 19.9481 9.25 19.75V12L3.9 4.69C3.81544 4.58007 3.76395 4.44832 3.75155 4.31018C3.73915 4.17204 3.76636 4.03323 3.83 3.91C3.89375 3.78712 3.98984 3.68399 4.10792 3.61173C4.226 3.53947 4.36157 3.50084 4.5 3.5H19.5C19.6384 3.50084 19.774 3.53947 19.8921 3.61173C20.0101 3.68399 20.1062 3.78712 20.17 3.91C20.2336 4.03323 20.2608 4.17204 20.2484 4.31018C20.236 4.44832 20.1846 4.58007 20.1 4.69L14.75 12V19.75C14.7474 19.9481 14.6676 20.1374 14.5275 20.2775C14.3874 20.4176 14.1981 20.4974 14 20.5ZM10.75 19H13.25V11.75C13.2492 11.5907 13.302 11.4357 13.4 11.31L18 5H6L10.62 11.31C10.718 11.4357 10.7708 11.5907 10.77 11.75L10.75 19Z" fill="#000000"/>
+    </svg>
+                </div>
+                <div class="filterBar">
+        <div class="filterContent">
+            <span>
+                <p>Filter By</p>
+            </span>
+            <span >
+                <input type="checkbox" value="male" id="maleF" v-model="selectedGenders">
+                <label for="maleF">Male</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="female" id="femaleF" v-model="selectedGenders">
+                <label for="femaleF">Female</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="new delhi" id="newDelhiF" v-model="selectedCities">
+                <label for="newDelhiF">New Delhi</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="mumbai" id="mumbaiF" v-model="selectedCities">
+                <label for="mumbaiF">Mumbai</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="banglore" id="bangloreF" v-model="selectedCities">
+                <label for="bangloreF">Banglore</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="chennai" id="chennaiF" v-model="selectedCities">
+                <label for="chennaiF">Chennai</label>
+            </span>
+            <span>
+                <input  type="checkbox" value="kolkata" id="kolkataF" v-model="selectedCities">
+                <label for="kolkataF">Kolkata</label>
+            </span>
+        </div>
+    </div>
+                <div class="sortBy">
+                    <span>SORT BY : </span>
+                    <select id="sortByWho" v-model="sortOption" >
+                        <option value="" >Choose Here</option>
+                        <option value="FNA-Z">First Name A-Z</option>
+                        <option value="FNZ-A">First Name Z-A</option>
+                        <option value="LNA-Z">Last Name A-Z</option>
+                        <option value="LNZ-A">Last Name Z-A</option>
+                        <option value="DOBO-Y">DOB Older-Younger</option>
+                        <option value="DOBY-O">DOB Younger-Older</option>
+                        <option value="CityA-Z">City A-Z</option>
+                        <option value="CityZ-A">City Z-A</option>
+                    </select>
+    </div>
+            </div>
+            
+
+        </div>
+        <table>
                 <thead>
                     <tr>
                         <th>
@@ -147,7 +211,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="person in profiles" :key="person.id">
+                    <tr v-for="person in displayedProfiles" :key="person.id">
                         <td>{{ person.firstName }}</td>
                         <td>{{ person.lastName }}</td>
                         <td>{{ person.email }}</td>
@@ -176,9 +240,9 @@
                             </span>
                         </div>
                     </td>
+                    </tr>
                 </tbody>
-            </table>
-        </div>
+        </table>
     </div>
 </body>
 </html>

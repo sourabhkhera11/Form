@@ -77,3 +77,56 @@ th,td{
 tr{
     height: 10px;
 }
+.sortBy,.filterBy{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 17px;
+    gap: 5px;
+}
+#sortByWho{
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #9c9a9a;
+}
+ .actionRow{
+    display: flex;
+    gap: 20px;
+    justify-content: start
+ }
+ .filterBy{
+    /* border: #9c9a9a 0.1px solid; */
+    padding:0px 15px;
+    border-radius: 5px;
+    opacity: 0.9;
+ }
+ .filterContent{
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    letter-spacing: 2px;
+}
+.filterBar{
+    max-width: 200px;
+    position: absolute;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    left: 300px;
+    top: 300px;
+    display: none;
+}
+.filterContent p{
+    align-items: center;
+    color: #000;
+    font-weight: 700;
+}
+.filterBy:hover + .filterBar{
+    display: block;
+}
+.filterBar:hover{
+    display: block;
+}

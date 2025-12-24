@@ -14,6 +14,8 @@ const app = createApp({
             gender:"",
             interests: [],
             address: "",
+            selectedGenders: [],
+            selectedCities: [],
             profiles: [{
                 id: "1",
                 firstName: "Sourabh",
@@ -41,7 +43,60 @@ const app = createApp({
             error:{},
             modifyBit: false,
             modifyId:"",
+            sortOption:"",
+            tempArr:[],
+            arrayName:"profiles",
         };
+    },
+    created() {
+        this.tempArr = [...this.profiles];
+    },
+    computed: {
+        displayedProfiles() {
+            let list = [...this.profiles];
+
+            if (this.selectedGenders.length > 0) {
+                list = list.filter(person => 
+                    this.selectedGenders.includes(person.gender.toLowerCase())
+                );
+            }
+
+            if (this.selectedCities.length > 0) {
+                list = list.filter(person => 
+                    this.selectedCities.includes(person.city.toLowerCase())
+                );
+            }
+
+            if (this.sortOption) {
+                switch (this.sortOption) {
+                    case "FNA-Z":
+                        list.sort((a, b) => a.firstName.localeCompare(b.firstName));
+                        break;
+                    case "FNZ-A":
+                        list.sort((a, b) => b.firstName.localeCompare(a.firstName));
+                        break;
+                    case "LNA-Z":
+                        list.sort((a, b) => a.lastName.localeCompare(b.lastName));
+                        break;
+                    case "LNZ-A":
+                        list.sort((a, b) => b.lastName.localeCompare(a.lastName));
+                        break;
+                    case "CityA-Z":
+                        list.sort((a, b) => a.city.localeCompare(b.city));
+                        break;
+                    case "CityZ-A":
+                        list.sort((a, b) => b.city.localeCompare(a.city));
+                        break;
+                    case "DOBO-Y":
+                        list.sort((a, b) => new Date(a.dob) - new Date(b.dob));
+                        break;
+                    case "DOBY-O":
+                        list.sort((a, b) => new Date(b.dob) - new Date(a.dob));
+                        break;
+                }
+            }
+            return list;
+        }
     },
     methods: {
         showSignUpForm() {
@@ -79,6 +134,7 @@ const app = createApp({
                     address: this.address,
                 });
             }
+            this.tempArr = [...this.profiles];
             this.formReset();
             console.log(this.profiles);
         },
@@ -155,7 +211,44 @@ const app = createApp({
             this.address = "";
             this.modifyBit = false;
             this.modifyId = "";
-        }
+        },
+        sortProfiles(){
+        let choiceId = this.sortOption;
+        switch (choiceId) {
+        case "FNA-Z":
+            this.tempArr.sort((a, b) => a["firstName"].localeCompare(b["firstName"]));
+            break;
+        case "LNA-Z":
+            this.tempArr.sort((a, b) => a["lastName"].localeCompare(b["lastName"]));
+            break;
+        case "CityA-Z":
+            this.tempArr.sort((a, b) => a["city"].localeCompare(b["city"]));
+            break;
+        case "FNZ-A":
+            this.tempArr.sort((a, b) => b["firstName"].localeCompare(a["firstName"]));
+            break;
+        case "LNZ-A":
+            this.tempArr.sort((a, b) => b["lastName"].localeCompare(a["lastName"]));
+            break;
+        case "CityZ-A":
+            this.tempArr.sort((a, b) => b["city"].localeCompare(a["city"]));
+            break;
+        case "DOBO-Y":
+            this.tempArr.sort((a, b) => {
+                return new Date(a.dob) - new  Date(b.dob);
+            });
+            break;
+        case "DOBY-O":
+            this.tempArr.sort((a, b) => {
+                return new Date(b.dob) - new Date(a.dob);
+            });
+            break;
+    }
+    this.arrayName = "tempArr";
     },
+    filterProfiles(){
+        console.log(this.male);
+    }
+},
 });
 app.mount("#app");
