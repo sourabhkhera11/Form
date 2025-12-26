@@ -17,7 +17,7 @@ const app = createApp({
             selectedGenders: [],
             selectedCities: [],
             cities:["new delhi","mumbai","banglore","chennai","hyderabad"],
-            interestsOptions: ["sports", "music", "movies", "spy"],
+            interestsOptions: ["sports", "music", "movies", "politics"],
             gendersOptions: ["male", "female", "other"],
             profiles: [{
                 id: "1",
@@ -158,6 +158,7 @@ const app = createApp({
                 });
             }
             this.formReset();
+            this.showProfileForm();
             console.log(this.profiles);
         },
         validateForm() {
@@ -216,7 +217,7 @@ const app = createApp({
             this.city = profile.city
             this.gender = profile.gender;   
             this.interests = profile.interests;
-            this.address = profile.address;gender
+            this.address = profile.address;
             this.showSignUpForm();
             this.modifyBit = true;
             this.modifyId = id;
