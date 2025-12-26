@@ -16,6 +16,9 @@ const app = createApp({
             address: "",
             selectedGenders: [],
             selectedCities: [],
+            cities:["new delhi","mumbai","banglore","chennai","hyderabad"],
+            interestsOptions: ["sports", "music", "movies", "spy"],
+            gendersOptions: ["male", "female", "other"],
             profiles: [{
                 id: "1",
                 firstName: "Sourabh",
