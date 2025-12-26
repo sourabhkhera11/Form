@@ -216,7 +216,7 @@ const app = createApp({
             this.city = profile.city
             this.gender = profile.gender;   
             this.interests = profile.interests;
-            this.address = profile.address;
+            this.address = profile.address;gender
             this.showSignUpForm();
             this.modifyBit = true;
             this.modifyId = id;

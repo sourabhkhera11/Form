@@ -42,7 +42,7 @@ body{
 .rightside{
     flex-basis: 50%;
     margin: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     padding: 30px;
     border-radius: 10px;
 }
@@ -63,6 +63,7 @@ body{
 .error-message,.mandatory{
     color: rgb(250, 9, 9);
     font-size: small;
+    font-weight: 700;
 }
 .creteAccount,.noUpdate{
     height: 40px;
@@ -109,7 +110,7 @@ tr{
     border-radius: 5px;
     background-color: #fff;
     color: #9c9a9a;
-}
+}background-color: aqua;
  .actionRow{
     display: flex;
     gap: 20px;
@@ -163,7 +164,8 @@ tr{
     display: flex;
     justify-content: center;
     background-image: url("/public/66347.jpg");
-    background-size: cover;/
+    background-size: cover;
+    background-position: center;
     opacity: 0.9;
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -185,4 +187,88 @@ h1{
     /* font-size: 20px; */
     color: #333;
     text-align: center;
+}
+label{
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.label{
+    margin-bottom: 5px;
+}
+input,textarea,select{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-family: "lato", sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+::placeholder{
+    color: #333;
+}
+select:focus,textarea:focus,input:focus{
+    outline: none;
+    box-shadow: 0 0 5px #47b475;
+}
+
+/* Important style to remove the default behavior of the drop down */
+select {
+  appearance: base-select;
+}
+select::picker(select) {
+  appearance: base-select;
+  border: none;
+  padding: 5px;
+  background-color: #ffffff;
+}
+
+option:hover {
+  background-color: #47b475;
+  color: white;
+}
+option:checked {
+  background-color: #47b475; 
+  outline: none;
+}
+
+/* For radio and checkbox styles */
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none; /* WebKit specific */
+  width: 6px;
+  height: 6px;
+  border: 2px solid #ccc;  /* Your custom border */
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Specific to Radio (Circular) */
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+/* Checked state */
+input[type="radio"]:checked ,input[type="checkbox"]:checked {
+  background-color: #47b475; /* Your base color */
+  border-color: #47b475;
+}
+
+/* Custom internal dot for radio */
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.centerAlign{
+    display: inline-flex;
+    align-items: center;
 }

@@ -11,10 +11,10 @@
     <div id="app">
         <div class="buttons">
             <div v-on:click="showSignUpForm" class="navButtons">
-                <h3>SignUp</h3>
+                <h3 class="heading">SignUp</h3>
             </div>
             <div v-on:click="showProfileForm" class="navButtons">
-                <h3>Profile</h3>
+                <h3 class="heading">Profile</h3>
             </div>
         </div>
         <form v-show="showSignUp" v-on:submit.prevent="validateForm">
@@ -36,24 +36,24 @@
                         <div class="row">
                             <div class="col">
                                 <label for="firstName">First Name<span class="mandatory">*</span>:</label>
-                                <input type="text" id="firstName" v-model="firstName" placeholder="" name="firstName">
+                                <input type="text" id="firstName" v-model="firstName" placeholder="Input Your First Name" name="firstName">
                                 <p class="error-message" v-if="error.firstName">{{ error.firstName }}</p>
                             </div>
                             <div class="col">
                                 <label for="lastName">Last Name<span class="mandatory">*</span>:</label>
-                                <input type="text" id="lastName" v-model="lastName" name="lastName">
+                                <input type="text" placeholder="Input Your Last Name" id="lastName" v-model="lastName" name="lastName">
                                 <p class="error-message" v-if="error.lastName">{{ error.lastName }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="email">Email<span class="mandatory">*</span>:</label>
-                                <input type="email" id="email" v-model="email" name="email">
+                                <input type="email" placeholder="Input Your Email Address" id="email" v-model="email" name="email">
                                 <p class="error-message" v-if="error.email">{{ error.email }}</p>
                             </div>
                             <div class="col">
                                 <label for="phoneNumber">Phone Number<span class="mandatory">*</span>:</label>
-                                <input type="tel" id="phoneNumber" v-model="phoneNumber" name="phoneNumber">
+                                <input type="tel" placeholder="Input Your Phone Number" id="phoneNumber" v-model="phoneNumber" name="phoneNumber">
                                 <p class="error-message" v-if="error.phoneNumber">{{ error.phoneNumber }}</p>
                             </div>
                         </div>
@@ -66,9 +66,9 @@
                             <div class="col">
                                 <label for="gender">Gender<span class="mandatory">*</span>:</label>
                                 <div>
-                                    <span v-for="gender in gendersOptions" :key="gender">
-                                        <input class="option" type="radio" :value="gender" name="gender" :id="gender" v-model="gender">
-                                        <label class="label" :for="gender">{{ gender.charAt(0).toUpperCase() + gender.slice(1) }}</label>
+                                    <span v-for="g in gendersOptions" :key="g" class="centerAlign">
+                                        <input class="option" type="radio" :value="g" :id="g" v-model="gender">
+                                        <label class="label" :for="g">{{ g.charAt(0).toUpperCase() + g.slice(1) }}</label>
                                     </span>
                                 </div>
                                 <p class="error-message" v-if="error.gender">{{ error.gender }}</p>
@@ -87,7 +87,7 @@
                             <div class="col">
                                 <label>Interests<span class="mandatory">*</span>:</label>
                                 <div>
-                                    <span v-for="interest in interestsOptions" :key="interest">
+                                    <span class="centerAlign" v-for="interest in interestsOptions" :key="interest">
                                         <input class="option" type="checkbox" :id="interest" :value="interest" v-model="interests">
                                         <label class="label" :for="interest">{{ interest.charAt(0).toUpperCase() + interest.slice(1) }}</label>
                                     </span>
@@ -97,10 +97,10 @@
                         </div>
                     </div>
                     <div >
-                        <div class="">
+                        <div class="label">
                             <label for="address">Address<span class="mandatory">*</span>:</label>
                         </div>
-                        <textarea name="address" id="address" rows="5" cols="90" v-model="address"></textarea>
+                        <textarea placeholder="Input Your Address" name="address" id="address" rows="5" cols="65" v-model="address"></textarea>
                         <div>
                             <p class="error-message" v-if="error.address">{{ error.address }}</p>
                         </div>
