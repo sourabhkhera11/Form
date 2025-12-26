@@ -53,7 +53,7 @@ const app = createApp({
                 city:"banglore",
                 gender:"male",
                 interests:["sports","music","politics"],
-                address:"123 Main Street, Banglore, Karnataka 560001"
+                address:"123 Main Street, Banglore, Karnataka 560top001"
             },
             {
                 id: "4",

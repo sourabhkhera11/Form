@@ -10,10 +10,10 @@
 <body>
     <div id="app">
         <div class="buttons">
-            <div v-on:click="showSignUpForm" class="navButtons">
+            <div :class="{'buttonStyle':showSignUp}" v-on:click="showSignUpForm" class="navButtons butt1 ">
                 <h3 class="heading">SignUp</h3>
             </div>
-            <div v-on:click="showProfileForm" class="navButtons">
+            <div :class="{'buttonStyle':showProfile}" v-on:click="showProfileForm" class="navButtons butt2">
                 <h3 class="heading">Profile</h3>
             </div>
         </div>
