@@ -163,12 +163,36 @@ const app = createApp({
         },
         validateForm() {
             this.error={};
+            this.firstNameValidation();
+            this.lastNameValidation();
+            this.emailValidation();
+            this.phoneValidation();
+            this.dobValidation();
+            this.genderValidation();
+            this.cityValidation();
+            this.interestValidation();
+            this.addressValidation();
+            if(Object.keys(this.error).length===0){
+                this.handleSubmit();
+            }
+        },
+        firstNameValidation(){
             if(!this.firstName){
                 this.error.firstName="First Name is required";
             }
+            else{
+                this.error.firstName="";
+            }
+        },
+        lastNameValidation(){
             if(!this.lastName){
                 this.error.lastName="Last Name is required";
             }
+            else{
+                this.error.lastName="";
+            }
+        },
+        emailValidation(){
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if(!this.email){
                 this.error.email="Email is required";
@@ -176,32 +200,62 @@ const app = createApp({
             else if(!emailPattern.test(this.email)){
                 this.error.email="Invalid email format";
             }
+            else{
+                this.error.email="";
+            }
+        },
+        phoneValidation(){
             if(!this.phoneNumber){
                 this.error.phoneNumber="Phone Number is required";
             }
             else if(this.phoneNumber.length!==10){
                 this.error.phoneNumber="Phone Number must be 10 digits";
             }
+            else{
+                this.error.phoneNumber="";
+            }
+        },
+        dobValidation(){
             if(!this.dob){
                 this.error.dob="Date of Birth is required";
             }
             else if(new Date(this.dob) >= new Date()){
                 this.error.dob="Invalid Date of Birth";
             }
+            else{
+                this.error.dob="";
+            }
+        },
+        cityValidation(){
             if(!this.city){
                 this.error.city="City is required";
             }
+            else{
+                this.error.city="";
+            }
+        },
+        genderValidation(){
             if(!this.gender){
                 this.error.gender="Gender is required";
             }
+            else{
+                this.error.gender="";
+            }
+        },
+        interestValidation(){
             if(this.interests.length===0){
                 this.error.interests="At least one interest must be selected";
             }
+            else{
+                this.error.interests="";
+            }
+        },
+        addressValidation(){
             if(!this.address){
                 this.error.address="Address is required";
             }
-            if(Object.keys(this.error).length===0){
-                this.handleSubmit();
+            else{
+                this.error.address="";
             }
         },
         handleDelete(id){

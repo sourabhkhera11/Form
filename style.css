@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 body{
     width: 100vw;
@@ -20,20 +20,22 @@ body{
     display: flex;
     justify-content: center;
     /* align-items: center; */
+    background-color: #f4f4f4;
 }
 .container{
-    width: 1000px;
+    width: 1045px;
     height: fit-content;
     display: flex;  
 }
 .container2{
-    width: 1200px;
-    margin-top: 60px;
+    width: 1045px;
+    margin-top: 30px;
     display: flex;
-    gap: 10px;
     background-image: url("/public/66347.jpg");
     background-size: cover;
     background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 .leftside{
     flex-basis: 50%;
@@ -67,7 +69,7 @@ body{
 }
 .error-message,.mandatory{
     color: rgb(250, 9, 9);
-    font-size: small;
+    font-size: 14px;
     font-weight: 700;
 }
 .creteAccount,.noUpdate{
@@ -139,7 +141,7 @@ tr{
     height: auto;
     padding: 10px;
     /* background-color: aqua; */
-    margin-top: 60px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     background-image: url("/public/66347.jpg");
@@ -149,8 +151,9 @@ tr{
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
-h1{
+.mainHeading{
     text-align: center;
+    font-size: 36px;
 }
 .slide1{
     display: flex;
@@ -164,7 +167,7 @@ h1{
     font-size: 36px;
 }
 .heading{
-    /* text-align: center; */
+    
 }
 .subheading{
     color: #333;
@@ -281,8 +284,9 @@ input[type="checkbox"]:checked::after {
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 10px;
-    margin: 10px 0px;
-    margin-left: 10px;
+    margin: 20px 0px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 .rightCon2{
     flex-basis: 80%;
@@ -291,8 +295,13 @@ input[type="checkbox"]:checked::after {
     border-radius: 10px;
     width: 100%;
     overflow-x: auto;    
-    margin: 10px 0px;
-    margin-right: 10px;
+    margin: 20px 0px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+.rightUpper{
+    width: 100%;
+    overflow-x: auto;
 }
     /* border: 1px solid #ccc; */
 .tableRow{
